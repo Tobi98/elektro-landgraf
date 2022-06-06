@@ -32,9 +32,11 @@ const GlobalStyles = createGlobalStyle`
     body {
         margin: 0;
         min-height: 100vh;
+        background: #39b03c10;
     }
 
     p, h1, h2, h3, h4, h5, h6, a {
         font-family: roboto, sans-serif;
+        color: #44484d
     }
 `;

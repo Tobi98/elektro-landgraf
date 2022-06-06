@@ -33,6 +33,7 @@ const Layout: FunctionComponent<Props> = ({ footer, children, menu, popUp }) => 
                         </a>
                     </Link>
                 </LogoWrapper>
+                <JobTypography variant="h2">Gesucht Lehrling: Elektroinstallationstechniker</JobTypography>
             </ContentWrapper>
             {/* <Content open={false}>{children}</Content> */}
             <Footer footer={footer} />
@@ -51,8 +52,7 @@ const Content = styled.main<ContentProps>`
     transition: all 0.5s ease-in;
     margin-left: ${({ open }) => (open ? -100 : 0)}vw;
     position: relative;
-    width: 100vw;
-    background: ${({ theme }) => `${theme.palette.primary.main}10`};
+    /* width: 100vw; */
     min-height: calc(100vh - 225px);
     display: flex;
     flex-direction: column;
@@ -70,12 +70,42 @@ const LogoWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 100px;
+    padding: 20px 100px;
+
+    ${({ theme }) => theme.breakpoints.down("md")} {
+        padding: 20px 20px;
+        padding: 20px 50px;
+    }
 `;
 
 const MoreTypography = styled(Typography)`
     && {
         font-weight: 500;
-        padding: 0 100px;
+        padding: 20px 100px;
+
+        ${({ theme }) => theme.breakpoints.down("md")} {
+            padding: 20px 50px;
+        }
+
+        ${({ theme }) => theme.breakpoints.down("sm")} {
+            padding: 20px 20px;
+            font-size: 3rem;
+        }
+    }
+`;
+
+const JobTypography = styled(Typography)`
+    && {
+        padding: 20px 100px;
+        overflow-wrap: break-word;
+
+        ${({ theme }) => theme.breakpoints.down("md")} {
+            padding: 20px 50px;
+        }
+
+        ${({ theme }) => theme.breakpoints.down("sm")} {
+            padding: 20px 20px;
+            font-size: 1.75rem;
+        }
     }
 `;
