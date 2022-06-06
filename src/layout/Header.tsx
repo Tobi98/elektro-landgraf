@@ -1,9 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-
-import Logo from "../assets/logo_header.png";
 
 export interface MenuProps {
     url: string;
@@ -18,21 +15,18 @@ interface HeaderProps {
 const Header: FunctionComponent<HeaderProps> = ({ menuItems }) => {
     return (
         <Wrapper>
-            <LogoWrapper>
-                <Link href="/" passHref>
-                    <a>
-                        <Image src={Logo} alt="Logo Kuhn4sports" />
-                    </a>
-                </Link>
-            </LogoWrapper>
             <MenuItemsWrapper>
-                {menuItems.map((item: MenuProps) => (
-                    <MenuItem key={item.position}>
-                        <Link passHref href={item.url === "home" ? "/" : item.url}>
-                            <LinkInner>{item.name}</LinkInner>
-                        </Link>
-                    </MenuItem>
-                ))}
+                {menuItems.length === 1 ? (
+                    <></>
+                ) : (
+                    menuItems.map((item: MenuProps) => (
+                        <MenuItem key={item.position}>
+                            <Link passHref href={item.url === "home" ? "/" : item.url}>
+                                <LinkInner>{item.name}</LinkInner>
+                            </Link>
+                        </MenuItem>
+                    ))
+                )}
             </MenuItemsWrapper>
         </Wrapper>
     );
@@ -41,23 +35,14 @@ const Header: FunctionComponent<HeaderProps> = ({ menuItems }) => {
 export default Header;
 
 const Wrapper = styled.header`
-    background-color: ${({ theme }) => theme.palette.background.default};
+    background: ${({ theme }) => theme.palette.primary.main};
+    background: ${({ theme }) =>
+        `linear-gradient(162deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 37%, ${theme.palette.primary.light} 100%)`};
     width: 100%;
     display: grid;
     grid-template-columns: repeat(24, 1fr);
     position: relative;
-`;
-
-const LogoWrapper = styled.div`
-    grid-column: 2 / span 6;
-
-    ${({ theme }) => theme.breakpoints.up("sm")} {
-        grid-column: 2 / span 4;
-    }
-
-    ${({ theme }) => theme.breakpoints.up("md")} {
-        grid-column: 2 / span 2;
-    }
+    min-height: 75px;
 `;
 
 const MenuItemsWrapper = styled.div`
@@ -78,7 +63,7 @@ const MenuItemsWrapper = styled.div`
 
 const LinkInner = styled.a`
     text-decoration: none;
-    color: ${({ theme }) => theme.palette.primary.main};
+    color: ${({ theme }) => theme.palette.text.primary};
 `;
 
 const MenuItem = styled.div``;

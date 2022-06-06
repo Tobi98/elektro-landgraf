@@ -9,23 +9,22 @@ interface Props {
 const SEO: FunctionComponent<Props> = ({ name }) => {
     const router = useRouter();
     const path = router.asPath === "/" ? "" : router.asPath;
-    const cannocialUrl = `https://kuhn4sports.eu${path}`;
+    const cannocialUrl = `https://elektrotechnik-landgraf.at${path}`;
     return (
         <Head>
-            <title>{name} | Kuhn4sports</title>
-            <meta name="description" content="KUHN4SPORTs bietet individuell gestaltete Werbemittel für Ihre Firma oder Veranstaltung an."></meta>
-            <meta name="keywords" content="Werbemittel, individuell gestaltet, Werbeprodukte, Werbebotschaft, Sportevent, Promotion"></meta>
-            <meta name="author" content="Kuhn4sports"></meta>
-            <meta name="publisher" content="Kuhn4sports"></meta>
+            <title>{name} | Elektrotechnik Landgraf</title>
+            <meta name="description" content="Elektrotechnik Landgraf. Wir elektrisieren ihr Haus von A bis Z."></meta>
+            <meta
+                name="keywords"
+                content="Elektrotechnik, Elektroinstallation, Badsanierung, Küchenumbau, Kleinarbeiten, Wärmepumpen, E-Ladestationen"
+            ></meta>
+            <meta name="author" content="Elektrotechnik Landgraf"></meta>
+            <meta name="publisher" content="Elektrotechnik Landgraf"></meta>
             <meta name="robots" content="index" />
             <link rel="canonical" href={cannocialUrl} />
 
-            <meta property="og:title" content={`${name} | Kuhn4sports`} key="title" />
-            <meta
-                property="og:description"
-                content="KUHN4SPORTs bietet individuell gestaltete Werbemittel für Ihre Firma oder Veranstaltung an."
-                key="title"
-            />
+            <meta property="og:title" content={`${name} | Elektrotechnik Landgraf`} key="title" />
+            <meta property="og:description" content="Elektrotechnik Landgraf. Wir elektrisieren ihr Haus von A bis Z." key="title" />
         </Head>
     );
 };

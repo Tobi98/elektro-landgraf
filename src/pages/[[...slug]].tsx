@@ -105,8 +105,6 @@ const getMenu = (stories: Array<StoryData>): Array<MenuProps> => {
 
 const getFooter = (stories: Array<StoryData>): StoryData[] => {
     return stories.filter((story: StoryData) => {
-        console.log("Story ", story);
-
         if (story.name === "Footer") {
             return story;
         }
