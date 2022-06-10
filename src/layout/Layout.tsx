@@ -33,7 +33,7 @@ const Layout: FunctionComponent<Props> = ({ footer, children, menu, popUp }) => 
                         </a>
                     </Link>
                 </LogoWrapper>
-                <JobTypography variant="h2">Gesucht Lehrling: Elektroinstallationstechniker</JobTypography>
+                <JobTypography variant="h2">Gesucht: Lehrling Elektroinstallationstechniker</JobTypography>
             </ContentWrapper>
             {/* <Content open={false}>{children}</Content> */}
             <Footer footer={footer} />
